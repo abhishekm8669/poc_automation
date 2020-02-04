@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: mlops-poc
-          image: docker.io/devlogic123/poc_final:latest
+          image: docker.io/devlogic123/image-repo:latest
           command: ["/bin/sh"]
           args: ["-c", "python3 run.py"]
           ports:
