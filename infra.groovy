@@ -37,7 +37,7 @@ node("master")
 		   kubectl create -f EFK/fluentd-rbac.yaml
 		   kubectl create -f EFK/fluentd-daemonset.yaml
 		   kubectl create -f EFK/kibana.yaml
-		   sleep 10
+		   sleep 20
 		   
 		   kubectl get pods
 		   kubectl get svc
@@ -49,25 +49,25 @@ node("master")
   {
      sh '''
 	       kubectl create namespace monitoring
-		   kubectl create -f prometheus-rbac.yaml
-		   kubectl create -f config-map.yaml
-		   kubectl create -f prometheus-deployment.yaml
-		   kubectl create -f prometheus-service.yaml
+		   kubectl create -f prografana/prometheus-rbac.yaml
+		   kubectl create -f prografana/config-map.yaml
+		   kubectl create -f prografana/prometheus-deployment.yaml
+		   kubectl create -f prografana/prometheus-service.yaml
 		   
 		   /* Create State Metrics for Kubernetes Cluster */
 		   
-		   kubectl create -f state-metrics-rbac.yaml
-		   kubectl create -f state-metrics-deploy.yaml
-		   kubectl create -f state-metrics-service.yaml
-		   sleep 10
+		   kubectl create -f prografana/state-metrics-rbac.yaml
+		   kubectl create -f prografana/state-metrics-deploy.yaml
+		   kubectl create -f prografana/state-metrics-service.yaml
+		   sleep 20
 		   
 		   kubectl get pods -n kube-system | grep metrics
 		   
 		   /* Create Deployment for Grafana */
 		   
-		   kubectl create -f grafana-datasource-config.yaml
-		   kubectl create -f grafana.yaml
-		   sleep 10
+		   kubectl create -f prografana/grafana-datasource-config.yaml
+		   kubectl create -f prografana/grafana.yaml
+		   sleep 20
 		   
 		   kubectl get pods -n monitoring
 		   kubectl get svc -n monitoring
