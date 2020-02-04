@@ -24,7 +24,7 @@ node("master")
   stage("Pulling image from DockerHub")
   {
      sh '''
-	       sed -i 's/latest/latest1/g' Mlops/deploy.yaml
+	       sed -i 's/latest/'$BUILD_NUMBER'/g' Mlops/deploy.yaml
 	'''
   
   }
