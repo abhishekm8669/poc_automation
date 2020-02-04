@@ -34,13 +34,13 @@ node("master")
      sh '''
 	       kubectl create -f Mlops/deploy.yaml
 	       kubectl create -f EFK/elasticsearch.yaml
-		   kubectl create -f EFK/fluentd-rbac.yaml
-		   kubectl create -f EFK/fluentd-daemonset.yaml
-		   kubectl create -f EFK/kibana.yaml
-		   sleep 20
+	       kubectl create -f EFK/fluentd-rbac.yaml
+	       kubectl create -f EFK/fluentd-daemonset.yaml
+	       kubectl create -f EFK/kibana.yaml
+	       sleep 20
 		   
-		   kubectl get pods
-		   kubectl get svc
+	       kubectl get pods
+	       kubectl get svc
 	 ''' 
 	 
   }
