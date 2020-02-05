@@ -61,7 +61,7 @@ node("master")
 		   kubectl create -f prografana/state-metrics-service.yaml
 		   sleep 20
 		   
-		   kubectl get pods -n kube-system | grep metrics
+		   /* kubectl get pods -n kube-system | grep metrics */
 		   
 		   /* Create Deployment for Grafana */
 		   
