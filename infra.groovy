@@ -54,16 +54,16 @@ node("master")
 		   kubectl create -f prografana/prometheus-deployment.yaml
 		   kubectl create -f prografana/prometheus-service.yaml
 		   
-		   /* Create State Metrics for Kubernetes Cluster */
+		   # Create State Metrics for Kubernetes Cluster
 		   
 		   kubectl create -f prografana/state-metrics-rbac.yaml
 		   kubectl create -f prografana/state-metrics-deploy.yaml
 		   kubectl create -f prografana/state-metrics-service.yaml
 		   sleep 20
 		   
-		   /* kubectl get pods -n kube-system | grep metrics */
+		   # kubectl get pods -n kube-system | grep metrics
 		   
-		   /* Create Deployment for Grafana */
+		   # Create Deployment for Grafana
 		   
 		   kubectl create -f prografana/grafana-datasource-config.yaml
 		   kubectl create -f prografana/grafana.yaml
